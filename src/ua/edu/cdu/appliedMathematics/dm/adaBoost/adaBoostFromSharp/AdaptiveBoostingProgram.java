@@ -1,4 +1,4 @@
-package ua.edu.cdu.appliedMathematics.dm.adaBoost;
+package ua.edu.cdu.appliedMathematics.dm.adaBoost.adaBoostFromSharp;
 
 import java.util.ArrayList;
 import java.util.Arrays;
