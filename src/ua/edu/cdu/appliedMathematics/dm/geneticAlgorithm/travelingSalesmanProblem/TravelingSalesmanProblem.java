@@ -55,10 +55,10 @@ public class TravelingSalesmanProblem {
     /**
      * make cross of generation
      * replace 2 points (1 pair), points selects by random indexes
-     * if we have problems and all of new generations worse then current (if i > maxIterations) we change method of crossing:
+     * if we have problems and all of new generations worse then current (if i > maxIterations) we change method of solve:
      * we replace 4 points (2 pairs) or 6 points (3 pairs)
      * if after all iterations we did not find better generation we return false
-     * @param maxIterations - max count of iterations, after its we change method of crossing
+     * @param maxIterations - max count of iterations, after its we change method of solve
      * @return true if we found new better generation, false if did not find
      */
     public boolean crossing(final int maxIterations){
@@ -84,7 +84,7 @@ public class TravelingSalesmanProblem {
     }
 
     /**
-     * make crossing for Points of current generation using rules from method crossing
+     * make solve for Points of current generation using rules from method solve
      * @param parent - points of current generation
      * @param j - counter of pair for replacing
      * @return coordinates of cities of new generation

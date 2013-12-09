@@ -12,7 +12,7 @@ public class Main {
         final TravelingSalesmanProblem tsp = new TravelingSalesmanProblem(cities, startFinish);
         System.out.println("Initial data:\n" + tsp.getBetterGeneration());
         int i = 0;
-        //run crossing while new generation better then current and we have less then 1000 generations
+        //run solve while new generation better then current and we have less then 1000 generations
         while (tsp.crossing(10000) && i++ < 1000);
         //gets better generation
         final Generation generation = tsp.getBetterGeneration();
