@@ -291,8 +291,7 @@ public class AdaptiveBoostingProgram {
      */
     private static double[] bestLearner(final List<Learner> learners, final int[] usedLearners){
         // check to make sure there is at least one unused weak learner
-        Arrays.sort(usedLearners);
-        int x = Arrays.binarySearch(usedLearners, 0);                           // find first unused learner
+        int x = LinearSearch.search(usedLearners, 0);                           // find first unused learner
         if (x < 0) {
             throw new RuntimeException("No unused weak learners found by method bestLearner");
         }
@@ -379,13 +378,13 @@ public class AdaptiveBoostingProgram {
             final int bestIndex = (int) doubles[0];                                                 // find index of best learner (that hasn't yet been used) and its weighted error epsilonT
             double epsilonT = doubles[1];                                                           // best (Smallest) weighted error at curr iteration t
             //System.out.println("best learner is " + bestIndex); Console.ReadLine();
-            if (Math.abs(0.5 - epsilonT) <= 0.00001) {
+            if (Math.abs(0.5 - epsilonT) <= 0.0001) {
                 break;                                                                              // if best weighted error is (almost) 0.5 or greater then no use in continuing on
             }
             bestLearners.add(bestIndex);
 
             if (cLoseToZero(epsilonT)) {
-                epsilonT = 0.000001;                                                                // avoid division by 0 when computing alphaT
+                epsilonT = 0.00001;                                                                // avoid division by 0 when computing alphaT
             }
             final double alphaT = 0.5 * Math.log((1.0 - epsilonT) / epsilonT);                      // Smaller epsilon error makes Larger alpha values
             //System.out.println("a = " + alphaT); Console.ReadLine();
