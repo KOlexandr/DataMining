@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Point {
-    private double[] coordinates;
     private int dimension;
+    private double[] coordinates;
 
     private static final Random random = new Random();
 

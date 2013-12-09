@@ -20,6 +20,15 @@ public class DE {
     private double[] maxBoundaries;
     private double[] fitnesses;
 
+    /**
+     * constructor
+     * @param n - dimension of space of task
+     * @param m - points in one generation
+     * @param F - the differential weight
+     * @param CR - the crossover probability
+     * @param minBoundaries - array of min boundaries of points for all points
+     * @param maxBoundaries - array of max boundaries of points for all points
+     */
     public DE(int n, int m, double F, double CR, double[] minBoundaries, double[] maxBoundaries) {
         this.n = n;
         this.m = m;
@@ -32,6 +41,9 @@ public class DE {
         this.init();
     }
 
+    /**
+     * initialize array by random points and count fitness for all
+     */
     private void init(){
         fillByUniquePoints(0, m, x);
         for (int i = 0; i < m; i++) {
@@ -39,6 +51,12 @@ public class DE {
         }
     }
 
+    /**
+     * fill array by new random points
+     * @param start - start index in subArray
+     * @param end - end index of subArray
+     * @param points array with exist points
+     */
     private void fillByUniquePoints(final int start, final int end, final Point[] points) {
         for (int i = start; i < end; i++) {
             Point newPoint = generateNewRandomPoint();
@@ -49,6 +67,9 @@ public class DE {
         }
     }
 
+    /**
+     * realizes Differential Evolution algorithm for one external step
+     */
     public void solve(){
         for (int i = 0; i < m; i++) {
             final Point[] tmp = new Point[4];
@@ -72,6 +93,10 @@ public class DE {
         }
     }
 
+    /**
+     * find point with better fitness
+     * @return - found point
+     */
     public Point getBetterPoint(){
         double fitness = fitnesses[0];
         Point better = x[0];
@@ -84,6 +109,10 @@ public class DE {
         return better;
     }
 
+    /**
+     * find better fitness
+     * @return - found fitnes
+     */
     public double getBetterFitness(){
         double fitness = fitnesses[0];
         for (int i = 1; i < m; i++) {
@@ -111,10 +140,19 @@ public class DE {
         }
     }
 
+    /**
+     * count fitness for one point
+     * @param point - point for counting
+     * @return value of function (fitness)
+     */
     public double fitness(final Point point){
        return 100*Math.pow(point.getCoordinates()[1] - point.getCoordinates()[0]*point.getCoordinates()[0], 2) + Math.pow(1-point.getCoordinates()[0], 2);
     }
 
+    /**
+     * create new point with random coordinates and given boundaries of coordinates
+     * @return new point
+     */
     private Point generateNewRandomPoint() {
         return Point.getRandomPoint(minBoundaries, maxBoundaries, n);
     }
