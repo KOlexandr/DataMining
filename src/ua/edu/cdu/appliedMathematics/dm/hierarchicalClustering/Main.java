@@ -1,4 +1,4 @@
-package ua.edu.cdu.appliedMathematics.dm.agglomerativeMethod;
+package ua.edu.cdu.appliedMathematics.dm.hierarchicalClustering;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -10,7 +10,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        final List<Point> points = readPointsFromFile("src/ua/edu/cdu/appliedMathematics/dm/agglomerativeMethod/test.txt");
+        final List<Point> points = readPointsFromFile("src/ua/edu/cdu/appliedMathematics/dm/hierarchicalClustering/test.txt");
 
         /**
          * this are tests for 3 different type of counting similarity between clusters
@@ -22,12 +22,12 @@ public class Main {
          * as result i can say that type GROUP_AVERAGE worse for test data then MIN and MAX
          */
 
-        final AgglomerativeMethod am = new AgglomerativeMethod(points, 6, 3, InterClassSimilarityType.MIN);
-        //final AgglomerativeMethod am = new AgglomerativeMethod(points, 20, 3, InterClassSimilarityType.MAX);
-        //final AgglomerativeMethod am = new AgglomerativeMethod(points, 6, 3, InterClassSimilarityType.GROUP_AVERAGE);
+        final HierarchicalClustering hc = new HierarchicalClustering(points, 6, 3, InterClassSimilarityType.MIN);
+        //final HierarchicalClustering hc = new HierarchicalClustering(points, 20, 3, InterClassSimilarityType.MAX);
+        //final HierarchicalClustering hc = new HierarchicalClustering(points, 6, 3, InterClassSimilarityType.GROUP_AVERAGE);
 
-        printClusters(am.getResultClusters());
-        System.out.println("Noise: " + am.getNoiseCluster());
+        printClusters(hc.getResultClusters());
+        System.out.println("Noise: " + hc.getNoiseCluster());
     }
 
     private static void printClusters(final List<Cluster> clusters){

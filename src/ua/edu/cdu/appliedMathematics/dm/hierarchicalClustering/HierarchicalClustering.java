@@ -1,11 +1,11 @@
-package ua.edu.cdu.appliedMathematics.dm.agglomerativeMethod;
+package ua.edu.cdu.appliedMathematics.dm.hierarchicalClustering;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class AgglomerativeMethod {
+public class HierarchicalClustering {
 
     private int minPt;
     private double eps;
@@ -22,7 +22,7 @@ public class AgglomerativeMethod {
      * @param minPt - minimum number of points for cluster? if cluster has less number of points this cluster is noise
      * @param similarityType - type of counting similarity between clusters
      */
-    public AgglomerativeMethod(List<Point> d, double eps, int minPt, InterClassSimilarityType similarityType) {
+    public HierarchicalClustering(List<Point> d, double eps, int minPt, InterClassSimilarityType similarityType) {
         this.d = d;
         this.eps = eps;
         this.minPt = minPt;

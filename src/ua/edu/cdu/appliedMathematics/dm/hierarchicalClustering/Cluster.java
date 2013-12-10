@@ -1,4 +1,4 @@
-package ua.edu.cdu.appliedMathematics.dm.agglomerativeMethod;
+package ua.edu.cdu.appliedMathematics.dm.hierarchicalClustering;
 
 import java.util.HashSet;
 import java.util.Set;
