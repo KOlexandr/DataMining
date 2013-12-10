@@ -15,7 +15,7 @@ public class Main {
         /*final Set<Point> points = new HashSet<>(Arrays.asList(new Point(new double[]{1.28}, 1), new Point(new double[]{1.30}, 1), new Point(new double[]{1.32}, 1),
                                                   new Point(new double[]{1.36}, 1), new Point(new double[]{1.37}, 1), new Point(new double[]{1.39}, 1),
                                                   new Point(new double[]{1.43}, 1)));*/
-        final Set<Point> points = readPointsFromFile("d:/test.txt");
+        final Set<Point> points = readPointsFromFile("src/ua/edu/cdu/appliedMathematics/dm/dbscan/test.txt");
         final DBSCAN dbscan = new DBSCAN(4, 6, points);
         printClusters(dbscan.getClusters());
         System.out.println("Noise:\n" + dbscan.getNoise());
