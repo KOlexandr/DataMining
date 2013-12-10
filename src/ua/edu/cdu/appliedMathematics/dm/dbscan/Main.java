@@ -7,7 +7,7 @@ import java.util.Set;
 public class Main {
 
     public static void main(String[] args) {
-        final Set<Point> points = new HashSet<>(Arrays.asList(new Point(new double[]{1.30}, 1), new Point(new double[]{1.32}, 1), new Point(new double[]{1.31}, 1),
+        final Set<Point> points = new HashSet<>(Arrays.asList(new Point(new double[]{1.28}, 1), new Point(new double[]{1.30}, 1), new Point(new double[]{1.32}, 1),
                                                   new Point(new double[]{1.36}, 1), new Point(new double[]{1.37}, 1), new Point(new double[]{1.39}, 1),
                                                   new Point(new double[]{1.43}, 1)));
         final DBSCAN dbscan = new DBSCAN(2, 0.04, points);
