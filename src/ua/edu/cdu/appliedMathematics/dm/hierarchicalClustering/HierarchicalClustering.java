@@ -134,7 +134,7 @@ public class HierarchicalClustering {
         double dist = Double.MAX_VALUE;
         //finding cluster: distance from this cluster to closest less then eps and closest cluster is not processed yet
         //and closest not equals this cluster
-        for (int i = 1; i < s.length; i++) {
+        for (int i = 0; i < s.length; i++) {
             if(s[i] != 0 && dist > s[i] &&
                     s[i] < eps && !clusters.get(i).isProcessed()){
                 dist = s[i];
