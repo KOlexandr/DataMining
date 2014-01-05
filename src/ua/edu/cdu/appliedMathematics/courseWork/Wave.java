@@ -12,7 +12,7 @@ public class Wave {
 	private char[] subChunk1ID;
 	private int subChunk1Size;
 	private int audioFormat;
-	private int numChanels;
+	private int numChannels;
 	private int sampleRate;
 	private int byteRate;
 	private int blockAlign;
@@ -26,7 +26,7 @@ public class Wave {
 	 * Gets all info about wave file from vector which represent it
 	 * @param file - vector which represent file
 	 */
-	public Wave(int[] file) {
+	public Wave(final int[] file) {
 		sysInfo = getSysInfo(file, 44); 
 		chunkID = readID(sysInfo, 0, 4);
 		chunkSize = readNumber(sysInfo, 4, 4);
@@ -34,7 +34,7 @@ public class Wave {
 		subChunk1ID = readID(sysInfo, 12, 4);
 		subChunk1Size = readNumber(sysInfo, 16, 4);
 		audioFormat = readNumber(sysInfo, 20, 2);
-		numChanels = readNumber(sysInfo, 22, 2);
+		numChannels = readNumber(sysInfo, 22, 2);
 		sampleRate = readNumber(sysInfo, 24, 4);
 		byteRate = readNumber(sysInfo, 28, 4);
 		blockAlign = readNumber(sysInfo, 32, 2);
@@ -84,32 +84,32 @@ public class Wave {
 	 */
 	public void outInfoAboutWave(){
 		System.out.print("ChunkID \t= ");
-		for (int i = 0; i < chunkID.length; i++) {
-			System.out.print(chunkID[i]);
-		}
+        for (char aChunkID : chunkID) {
+            System.out.print(aChunkID);
+        }
 		System.out.println();
 		System.out.println("Chunk size \t= " + chunkSize);
 		System.out.print("Format \t\t= ");
-		for (int i = 0; i < format.length; i++) {
-			System.out.print(format[i]);
-		}
+        for (char aFormat : format) {
+            System.out.print(aFormat);
+        }
 		System.out.println();
 		System.out.print("SubChunk1ID \t= ");
-		for (int i = 0; i < subChunk1ID.length; i++) {
-			System.out.print(subChunk1ID[i]);
-		}
+        for (char aSubChunk1ID : subChunk1ID) {
+            System.out.print(aSubChunk1ID);
+        }
 		System.out.println();
 		System.out.println("SubChunk1 size \t= " + subChunk1Size);
 		System.out.println("Audio format \t= " + audioFormat);
-		System.out.println("Number chanels \t= " + numChanels);
+		System.out.println("Number chanels \t= " + numChannels);
 		System.out.println("Sample rate \t= " + sampleRate);
 		System.out.println("Byte rate \t= " + byteRate);
 		System.out.println("Block align \t= " + blockAlign);
 		System.out.println("Bits per sample = " + bitsPerSample);
 		System.out.print("SubChunk2ID \t= ");
-		for (int i = 0; i < subChunk2ID.length; i++) {
-			System.out.print(subChunk2ID[i]);
-		}
+        for (char aSubChunk2ID : subChunk2ID) {
+            System.out.print(aSubChunk2ID);
+        }
 		System.out.println();
 		System.out.println("SubChunk2 size \t= " + subChunk2Size);
 	}
@@ -254,8 +254,8 @@ public class Wave {
 	}
 	
 
-	public int getNumChanels() {
-		return numChanels;
+	public int getNumChannels() {
+		return numChannels;
 	}
 	
 
